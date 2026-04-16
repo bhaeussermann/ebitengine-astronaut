@@ -1,4 +1,4 @@
-module github.com/bhaeussermann/try-ebitengine
+module github.com/bhaeussermann/ebitengine-astronaut
 
 go 1.26.1
 
