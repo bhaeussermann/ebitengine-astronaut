@@ -1,6 +1,7 @@
 package game
 
 import (
+	_ "image/jpeg"
 	"log"
 	"math"
 	"math/rand"
@@ -25,7 +26,7 @@ type guy struct {
 }
 
 func NewGame() *Game {
-	backgroundImage, _, error := ebitenutil.NewImageFromFile("images/background.png")
+	backgroundImage, _, error := ebitenutil.NewImageFromFile("images/background.jpeg")
 	if error != nil {
 		log.Fatal(error)
 	}
