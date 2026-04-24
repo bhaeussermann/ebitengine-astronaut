@@ -54,6 +54,11 @@ func NewGame() *Game {
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
+	if (g.width != 0) && ((g.width != float64(outsideWidth)) || (g.height != float64(outsideHeight))) {
+		g.guy.x = math.Max(g.guy.width / 2, math.Min(float64(outsideWidth) - g.guy.width / 2, g.guy.x / g.width * float64(outsideWidth)))
+		g.guy.y = math.Max(g.guy.height / 2, math.Min(float64(outsideHeight) - g.guy.height / 2, g.guy.y / g.height * float64(outsideHeight)))
+	}
+
 	g.width = float64(outsideWidth)
 	g.height = float64(outsideHeight)
 	return outsideWidth, outsideHeight
