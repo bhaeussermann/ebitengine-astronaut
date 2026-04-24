@@ -1,0 +1,5 @@
+{
+  "buildCommand": "bash ./build-web.sh",
+  "outputDirectory": "bin/web",
+  "installCommand": ""
+}
