@@ -4,7 +4,8 @@ set -e
 # Install Go
 GO_VERSION="1.26.1"
 curl -sL "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" | tar -xz -C $HOME
-export PATH="$HOME/go/bin:$PATH"
+mv $HOME/go $HOME/golang
+export PATH="$HOME/golang/bin:$PATH"
 
 # Build WASM
 rm -rf bin/web
