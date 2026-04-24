@@ -26,12 +26,12 @@ type guy struct {
 }
 
 func NewGame() *Game {
-	backgroundImage, _, error := ebitenutil.NewImageFromFile("images/background.jpeg")
+	backgroundImage, _, error := ebitenutil.NewImageFromFile("../images/background.jpeg")
 	if error != nil {
 		log.Fatal(error)
 	}
 
-	guyImage, _, error := ebitenutil.NewImageFromFile("images/astronaut.png")
+	guyImage, _, error := ebitenutil.NewImageFromFile("../images/astronaut.png")
 	if error != nil {
 		log.Fatal(error)
 	}
@@ -46,9 +46,9 @@ func NewGame() *Game {
 			height: guyHeight,
 			x: guyWidth/2 + rand.Float64()*float64(800-guyWidth),
 			y: guyHeight/2 + rand.Float64()*float64(600-guyHeight),
-			speedX: float64(rand.Intn(2)*2-1) * (rand.Float64()/2 + 0.5) * 0.5,
-			speedY: float64(rand.Intn(2)*2-1) * (rand.Float64()/2 + 0.5) * 0.5,
-			rotationSpeed: float64(rand.Intn(2)*2-1) * 0.001,
+			speedX: float64(rand.Intn(2) * 2 - 1) * (rand.Float64() / 2 + 0.5) * 0.5,
+			speedY: float64(rand.Intn(2) * 2 - 1) * (rand.Float64() / 2 + 0.5) * 0.5,
+			rotationSpeed: float64(rand.Intn(2) * 2 - 1) * 0.001,
 		},
 	}
 }
@@ -70,10 +70,10 @@ func (g *Game) Draw(screen *ebiten.Image) {
 }
 
 func (g *Game) moveGuy() {
-	if (g.guy.x < g.guy.width/2) || (g.guy.x > g.width-g.guy.width/2) {
+	if (g.guy.x < g.guy.width / 2) || (g.guy.x > g.width - g.guy.width / 2) {
 		g.guy.speedX *= -1
 
-		left := g.guy.x < g.guy.width/2
+		left := g.guy.x < g.guy.width / 2
 		movingUp := g.guy.speedY < 0
 		if left == movingUp {
 			// Turn anti-clockwise
@@ -83,7 +83,7 @@ func (g *Game) moveGuy() {
 			g.guy.rotationSpeed = math.Abs(g.guy.rotationSpeed)
 		}
 	}
-	if (g.guy.y < g.guy.height/2) || (g.guy.y > g.height-g.guy.height/2) {
+	if (g.guy.y < g.guy.height/2) || (g.guy.y > g.height - g.guy.height/2) {
 		g.guy.speedY *= -1
 
 		top := g.guy.y < g.guy.height/2
@@ -121,7 +121,7 @@ func (g *Game) dragBackground(screen *ebiten.Image) {
 
 func (g *Game) drawGuy(screen *ebiten.Image) {
 	imageDrawGeom := ebiten.GeoM{}
-	imageDrawGeom.Translate(-g.guy.width/2, -g.guy.height/2)
+	imageDrawGeom.Translate(-g.guy.width / 2, -g.guy.height / 2)
 	imageDrawGeom.Rotate(g.guy.rotation)
 	imageDrawGeom.Translate(g.guy.x, g.guy.y)
 	screen.DrawImage(g.guyImage, &ebiten.DrawImageOptions{GeoM: imageDrawGeom})

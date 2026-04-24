@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/bhaeussermann/ebitengine-astronaut/game"
+	"github.com/bhaeussermann/ebitengine-astronaut/src/game"
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
