@@ -10,7 +10,10 @@ export PATH="$HOME/golang/bin:$PATH"
 # Build WASM
 rm -rf bin/web
 mkdir -p bin/web
-env GOOS=js GOARCH=wasm go build -o bin/web/astronaut.wasm github.com/bhaeussermann/ebitengine-astronaut/src
+env GOOS=js GOARCH=wasm
+cd src
+go build -o ../bin/web/astronaut.wasm github.com/bhaeussermann/ebitengine-astronaut
+cd ..
 cp web/*.* bin/web
 mkdir bin/web/images
 cp images/*.* bin/web/images
