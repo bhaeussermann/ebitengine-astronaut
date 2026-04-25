@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Install X11 headers for Ebitengine
+apt-get install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev
+
 # Install Go
 GO_VERSION="1.26.1"
 curl -sL "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" | tar -xz -C $HOME
