@@ -70,7 +70,7 @@ func (g *Game) Update() error {
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
-	g.dragBackground(screen)
+	g.drawBackground(screen)
 	g.drawGuy(screen)
 }
 
@@ -107,7 +107,7 @@ func (g *Game) moveGuy() {
 	g.guy.rotation += g.guy.rotationSpeed
 }
 
-func (g *Game) dragBackground(screen *ebiten.Image) {
+func (g *Game) drawBackground(screen *ebiten.Image) {
   screenWidth := float64(screen.Bounds().Dx())
   screenHeight := float64(screen.Bounds().Dy())
   imageWidth := float64(g.backgroundImage.Bounds().Dx())
